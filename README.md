@@ -11,7 +11,13 @@ Cuando creamos una aplicación con Spring boot que utiliza Tomcat embebido para 
 
 En el proyecto veremos cuales son estas ventajas.
 
-### Configuración del proyecto ###
+### Configuración del proyecto MAVEN ###
+
+#### Empaquetar como JAR ####
+
+```xml
+<packaging>jar</packaging>
+```
 
 #### Spring boot 1.4 ####
 
@@ -24,7 +30,7 @@ En el proyecto veremos cuales son estas ventajas.
 </parent>
 ```
 
-#### Dependencias del POM ####
+#### Dependencias ####
 
 * Tomcat embebido
 
@@ -54,7 +60,7 @@ La elección de usar templates por sobre JSP se debe a que al empaquetar como JA
 http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html
 https://blog.stackhunter.com/2014/01/17/10-reasons-to-replace-your-jsps-with-freemarker-templates/
 
-### Plugin maven spring boot ###
+#### Plugin maven spring boot ####
 
 ```xml
 <plugin>
@@ -82,13 +88,15 @@ public class MakejarApplication {
 }
 ```
 
-### Contribution guidelines ###
+#### Application properties ####
 
-* Writing tests
-* Code review
-* Other guidelines
+En el application.properties del proyecto podemos configurar las propiedades del Tomcat embebido. En este ejemplo vamos a ver sólo dos, que son el puerto y el context path donde se levanta la aplicación.
 
-### Who do I talk to? ###
+*server.port
+*server.context-path
 
-* Repo owner or admin
-* Other community or team contact
+Si no configuramos estas properties el puerto por defecto es el 8080 y el path es "/".
+
+#### Consejo ####
+
+Si ya tenés claro qué significan cada uno de los elementos que configuramos anteriormente, para ahorrar tiempo, podés usar la herramienta [Spring initialzr](https://start.spring.io/) y seleccionar las dependencias que antes especificamos.
