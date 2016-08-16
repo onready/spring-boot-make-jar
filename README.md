@@ -54,6 +54,16 @@ La elección de usar templates por sobre JSP se debe a que al empaquetar como JA
 http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html
 https://blog.stackhunter.com/2014/01/17/10-reasons-to-replace-your-jsps-with-freemarker-templates/
 
+### Plugin maven spring boot ###
+
+```xml
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+    </plugin>
+```
+
+Este plugin nos va a permitir empaquetar la aplicación como un jar ejecutable, y correrla "in-situ".
 
 ### Contribution guidelines ###
 
