@@ -13,7 +13,20 @@ En el proyecto veremos cuales son estas ventajas.
 
 ### Configuración del proyecto ###
 
-* Dependencias del POM
+#### Spring boot 1.4 ####
+
+```xml
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+```
+
+#### Dependencias del POM ####
+
+* Tomcat embebido
 
 ```xml
    <dependency>
@@ -21,6 +34,8 @@ En el proyecto veremos cuales son estas ventajas.
        <artifactId>spring-boot-starter-web</artifactId>
    </dependency>
 ```
+
+Con esta dependencia por defecto podremos usar el Tomcat embebido, por defecto el contenedor de servlets será el Tomcat 8.5.4, en caso de querer usar otro como Jetty o Undertown, se debe excluir de esta dependencia la de Tomcat e incluit la del contenedor elegido.
 
 ### Contribution guidelines ###
 
