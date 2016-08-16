@@ -13,7 +13,7 @@ Otra ventaja es que, de esta forma, evitamos el problema de tener que mantener s
 
 #### Mirando desde la otra perspectiva ####
 
-No todas las ventajas vienen del lado de usar contenedores de servlets embebidos. Utilizar un contenedor externo y desplegar en el las aplicaciones tiene sus beneficios. Algunos de los que destacamos son:
+No todas las ventajas vienen del lado de usar contenedores de servlets embebidos. Utilizar un contenedor externo y desplegar en él las aplicaciones tiene sus beneficios. Algunos de los que destacamos son:
 
 * Ahorrar recursos del sistema ya que hay un solo container y N aplicaciones, en lugar de N container y N aplicaciones.
 * La posibilidad de configurar datasources para poder gestionar las conexiones a bases de datos.
