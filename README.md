@@ -17,7 +17,7 @@ También para destacar, de esta forma se simplifica mucho el despliegue en entor
 
 No todas las ventajas vienen del lado de usar contenedores de servlets embebidos. Utilizar un contenedor externo y desplegar en él las aplicaciones tiene sus beneficios. Algunos de los que destacamos son:
 
-* Ahorrar recursos del sistema ya que hay un solo container y N aplicaciones, en lugar de N container y N aplicaciones.
+* Ahorrar recursos del sistema ya que hay un solo container y N aplicaciones, en lugar de N containers y N aplicaciones.
 * La posibilidad de configurar datasources para poder gestionar las conexiones a bases de datos.
 * Compartir configuraciones comunes entre aplicaciones en lugar de repetir la configuración para cada contenedor.
 
@@ -68,8 +68,8 @@ Los archivos ".ftl" deben quedar en la carpeta templates, creada automaticamente
 
 La elección de usar templates por sobre JSP se debe a que al empaquetar como JAR, estos últimos poseen algunas limitaciones. Pueden ver más información de esto en estos links:
 
-http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html
-https://blog.stackhunter.com/2014/01/17/10-reasons-to-replace-your-jsps-with-freemarker-templates/
+* http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html
+* https://blog.stackhunter.com/2014/01/17/10-reasons-to-replace-your-jsps-with-freemarker-templates/
 
 #### Plugin maven spring boot ####
 
