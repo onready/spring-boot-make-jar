@@ -54,6 +54,7 @@ Con esta dependencia por defecto podremos usar el Tomcat embebido, por defecto e
 
 Freemarker es el frameework de templating que eligimos para la parte visual. Otras alternativas son Mustache o Thymeleaf. (Velocity fue deprecado a partir de Spring boot 1.4)
 Al agregar esta dependencia, el view resolver de MVC tomara, al devolver vistas en los controlers,  el sufijo ".ftl".
+Los archivos ".ftl" deben quedar en la carpeta templates, creada automaticamente, ahí es donde la aplicación irá a buscar este tipo de archivos.
 
 La elección de usar templates por sobre JSP se debe a que al empaquetar como JAR, estos últimos poseen algunas limitaciones. Pueden ver más información de esto en estos links:
 
