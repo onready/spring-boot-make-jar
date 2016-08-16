@@ -11,6 +11,8 @@ Cuando creamos una aplicación con Spring boot que utiliza Tomcat embebido para 
 
 Otra ventaja es que, de esta forma, evitamos el problema de tener que mantener sincronización entre las versiones de la aplicación y la configuración del servidor, es decir, ¿cuál es la configuración adecuada del servidor para una determinada versión del código? ya que todo es manejado desde la aplicación.
 
+También para destacar, de esta forma se simplifica mucho el despliegue en entornos de cloud como Heroku o Microsoft Azure, facilitando la integración continua, debido a que comparten la filosofía de que cada aplicación debe ser lo más independiente posible.
+
 #### Mirando desde la otra perspectiva ####
 
 No todas las ventajas vienen del lado de usar contenedores de servlets embebidos. Utilizar un contenedor externo y desplegar en él las aplicaciones tiene sus beneficios. Algunos de los que destacamos son:
