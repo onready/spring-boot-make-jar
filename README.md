@@ -9,7 +9,15 @@ En este contexto se plantea que cada módulo tiene que ser lo más independiente
 
 Cuando creamos una aplicación con Spring boot que utiliza Tomcat embebido para el despliegue, al empaquetarlo como jar, Spring va a autoconfigurarnos algunos aspectos de la aplicación para sólo tener que centrarnos en el desarrollo, a diferencia del empaquetado como war, donde deberemos encargarnos nosotros mismos.
 
-En el proyecto veremos cuales son estas ventajas.
+Otra ventaja es que, de esta forma, evitamos el problema de tener que mantener sincronización entre las versiones de la aplicación y la configuración del servidor, es decir, ¿cuál es la configuración adecuada del servidor para una determinada versión del código? ya que todo es manejado desde la aplicación.
+
+#### Mirando desde la otra perspectiva ####
+
+No todas las ventajas vienen del lado de usar contenedores de servlets embebidos. Utilizar un contenedor externo y desplegar en el las aplicaciones tiene sus beneficios. Algunos de los que destacamos son:
+
+* Ahorrar recursos del sistema ya que hay un solo container y N aplicaciones, en lugar de N container y N aplicaciones.
+* La posibilidad de configurar datasources para poder gestionar las conexiones a bases de datos.
+* Compartir configuraciones comunes entre aplicaciones en lugar de repetir la configuración para cada contenedor.
 
 ### Configuración del proyecto MAVEN ###
 
