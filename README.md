@@ -92,8 +92,10 @@ public class MakejarApplication {
 
 En el application.properties del proyecto podemos configurar las propiedades del Tomcat embebido. En este ejemplo vamos a ver sólo dos, que son el puerto y el context path donde se levanta la aplicación.
 
-*server.port
-*server.context-path
+```java
+server.port={PUERTO}
+server.context-path={PATH}
+```
 
 Si no configuramos estas properties el puerto por defecto es el 8080 y el path es "/".
 
