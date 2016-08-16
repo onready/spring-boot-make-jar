@@ -16,12 +16,12 @@ En el proyecto veremos cuales son estas ventajas.
 #### Spring boot 1.4 ####
 
 ```xml
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.0.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.4.0.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+</parent>
 ```
 
 #### Dependencias del POM ####
@@ -29,10 +29,10 @@ En el proyecto veremos cuales son estas ventajas.
 * Tomcat embebido
 
 ```xml
-   <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-web</artifactId>
-   </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
 ```
 
 Con esta dependencia por defecto podremos usar el Tomcat embebido, por defecto el contenedor de servlets será el Tomcat 8.5.4, en caso de querer usar otro como Jetty o Undertown, se debe excluir de esta dependencia la de Tomcat e incluir la del contenedor elegido.
@@ -40,10 +40,10 @@ Con esta dependencia por defecto podremos usar el Tomcat embebido, por defecto e
 * Freemarker
 
 ```xml
-    <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-freemarker</artifactId>
-    </dependency>
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-freemarker</artifactId>
+</dependency>
 ```
 
 Freemarker es el frameework de templating que eligimos para la parte visual. Otras alternativas son Mustache o Thymeleaf. (Velocity fue deprecado a partir de Spring boot 1.4)
@@ -57,16 +57,16 @@ https://blog.stackhunter.com/2014/01/17/10-reasons-to-replace-your-jsps-with-fre
 ### Plugin maven spring boot ###
 
 ```xml
-    <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-    </plugin>
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
 ```
 
 Este plugin nos va a permitir empaquetar la aplicación como un jar ejecutable, y correrla "in-situ". A demás si no le especificamos una clase principal distinta, el plugin va a buscar, para comenzar la ejecución, la clase que tenga el método:
 
 ```java
-    public static void main(String[] args)
+public static void main(String[] args)
 ```
 
 En el caso de nuestro proyecto tendremos lo siguiente:
