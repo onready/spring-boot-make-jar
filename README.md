@@ -1,6 +1,6 @@
 # Aplicación empaquetada como JAR con Tomcat embebido #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+En este proyecto vamos a ver como configurar una aplicación con Spring Boot 1.4, que se despliega a través de un Tomcat embebido, es empaquetada como JAR y que utiliza como framework de templating Freemarker 2.3.25.
 
 ### What is this repository for? ###
 
