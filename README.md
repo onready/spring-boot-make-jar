@@ -63,7 +63,24 @@ https://blog.stackhunter.com/2014/01/17/10-reasons-to-replace-your-jsps-with-fre
     </plugin>
 ```
 
-Este plugin nos va a permitir empaquetar la aplicación como un jar ejecutable, y correrla "in-situ".
+Este plugin nos va a permitir empaquetar la aplicación como un jar ejecutable, y correrla "in-situ". A demás si no le especificamos una clase principal distinta, el plugin va a buscar, para comenzar la ejecución, la clase que tenga el método:
+
+```java
+    public static void main(String[] args)
+```
+
+En el caso de nuestro proyecto tendremos lo siguiente:
+
+```java
+@SpringBootApplication
+public class MakejarApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MakejarApplication.class, args);
+    }
+
+}
+```
 
 ### Contribution guidelines ###
 
