@@ -5,13 +5,13 @@ En este proyecto maven vamos a ver como configurar una aplicación con Spring Bo
 ### ¿Por qué jar y no war? ###
 
 Actualmente muchos desarrollos siguen, o intentan seguir, una arquitectura orientada a microservicios, donde cada uno de ellos es una aplicación en si misma que se comunica con los demás microservicios a través, por ejemplo, de una API REST.
-En este contexto se plantea que cada módulo tiene que ser lo más independiente posible para que pueda integrarse fácilmente al entorno, esto incluye también que pueda desplegarse sin necesidad de tener un contenedor de servlets externo.
+En este contexto se plantea que cada módulo tiene que ser lo más independiente posible para que pueda integrarse fácilmente al entorno, esto incluye que pueda desplegarse sin necesidad de tener un contenedor de servlets externo.
 
 Cuando creamos una aplicación con Spring boot que utiliza Tomcat embebido para el despliegue, al empaquetarlo como jar, Spring va a autoconfigurarnos algunos aspectos de la aplicación para sólo tener que centrarnos en el desarrollo, a diferencia del empaquetado como war, donde deberemos encargarnos nosotros mismos.
 
 Otra ventaja es que, de esta forma, evitamos el problema de tener que mantener sincronización entre las versiones de la aplicación y la configuración del servidor, es decir, ¿cuál es la configuración adecuada del servidor para una determinada versión del código? ya que todo es manejado desde la aplicación.
 
-También para destacar, de esta forma se simplifica mucho el despliegue en entornos de cloud como Heroku o Microsoft Azure, facilitando la integración continua, debido a que estos comparten la filosofía de que cada aplicación debe ser lo más independiente posible.
+También para destacar, de esta forma se simplifica mucho el despliegue en entornos de cloud como Heroku o Microsoft Azure, facilitando la integración continua, debido a que estos adhieren a la filosofía de la independencia de cada aplicación.
 
 #### Mirando desde la otra perspectiva ####
 
