@@ -1,4 +1,4 @@
-package com.somospnt.makejar;
+package com.onready.makejar;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.somospnt.makejar;
+package com.onready.makejar;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,7 @@ public class HomeController {
     
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("autor", "Somos PNT");
+        model.addAttribute("autor", "Onready");
         return "home";
     } 
     

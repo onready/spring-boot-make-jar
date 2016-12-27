@@ -1,6 +1,6 @@
 # Aplicación empaquetada como JAR con Tomcat embebido #
 
-En este proyecto maven vamos a ver como configurar una aplicación con Spring Boot 1.4, que se despliega a través de un Tomcat embebido, es empaquetada como JAR y que utiliza como framework de templating Freemarker 2.3.25.
+En este proyecto maven vamos a ver como configurar una aplicación con Spring Boot 1.4.3, que se despliega a través de un Tomcat embebido, es empaquetada como JAR y que utiliza como framework de templating Freemarker 2.3.25.
 
 ### ¿Por qué jar y no war? ###
 
@@ -35,7 +35,7 @@ No todas las ventajas vienen del lado de usar contenedores de servlets embebidos
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.4.0.RELEASE</version>
+    <version>1.4.3.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
 </parent>
 ```
