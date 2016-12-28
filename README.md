@@ -29,7 +29,7 @@ No todas las ventajas vienen del lado de usar contenedores de servlets embebidos
 <packaging>jar</packaging>
 ```
 
-#### Spring boot 1.4 ####
+#### Spring boot 1.4.3 ####
 
 ```xml
 <parent>
