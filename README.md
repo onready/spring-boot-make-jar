@@ -1,29 +1,21 @@
-# Aplicación empaquetada como JAR con Tomcat embebido #
+# Embedded Tomcat JAR packaged application #
 
-En este proyecto maven vamos a ver como configurar una aplicación con Spring Boot 1.4.3, que se despliega a través de un Tomcat embebido, es empaquetada como JAR y que utiliza como framework de templating Freemarker 2.3.25.
+On this maven project we are going to see how to configure a spring boot 1.4.3 application, that is being deployed on an embedded tomcat, is packaged as jar and uses Freemarker 2.3.25 as templeating software.
 
-### ¿Por qué jar y no war? ###
+### Why jar and why not to use war? ###
 
-Actualmente muchos desarrollos siguen, o intentan seguir, una arquitectura orientada a microservicios, donde cada uno de ellos es una aplicación en si misma que se comunica con los demás microservicios a través, por ejemplo, de una API REST.
-En este contexto se plantea que cada módulo tiene que ser lo más independiente posible para que pueda integrarse fácilmente al entorno, esto incluye que pueda desplegarse sin necesidad de tener un contenedor de servlets externo.
+Today many projects follow, or try to follow, a microservice oriented architecture, where every one of them are applications that communicates with the other microservices through, for example, a REST API.
+In this context, the challenge is to make every module as much independent as can be so is easily integrable with the enviroment, this includes that it cant deploy itself without the need of having a external servlet container.
 
-Cuando creamos una aplicación con Spring boot que utiliza Tomcat embebido para el despliegue, al empaquetarlo como jar, Spring va a autoconfigurarnos algunos aspectos de la aplicación para sólo tener que centrarnos en el desarrollo, a diferencia del empaquetado como war, donde deberemos encargarnos nosotros mismos.
+When we create an Spring Boot Application that uses an embedded Tomcat for the deployment, on the jar compiling process, Spring is going to autoconfigure some applications aspects so we only have to focus on the product development, instead of the war packagaging, where we have to do that job ourselves.
 
-Otra ventaja es que, de esta forma, evitamos el problema de tener que mantener sincronización entre las versiones de la aplicación y la configuración del servidor, es decir, ¿cuál es la configuración adecuada del servidor para una determinada versión del código? ya que todo es manejado desde la aplicación.
+Another advantage is that, on this way, we avoid the problem of having to sync between the versions of the application and the server configurations, that means, How is the properly server configuration for a determinated version of the code? Because all is now being manage from the application.
 
-También para destacar, de esta forma se simplifica mucho el despliegue en entornos de cloud como Heroku o Microsoft Azure, facilitando la integración continua, debido a que estos adhieren a la filosofía de la independencia de cada aplicación.
+We also have to highlight that, on this way we simplify a lot the deployment on cloud enviroments such as Heroku, Microsft Azure or AWS, making easier the continuous integration, because of the facilities that brings those platform of their adaptation to this philosophy of independency of each application.
 
-#### Mirando desde la otra perspectiva ####
+### Maven project configuration ###
 
-No todas las ventajas vienen del lado de usar contenedores de servlets embebidos. Utilizar un contenedor externo y desplegar en él las aplicaciones tiene sus beneficios. Algunos de los que destacamos son:
-
-* Ahorrar recursos del sistema ya que hay un solo container y N aplicaciones, en lugar de N containers y N aplicaciones.
-* La posibilidad de configurar datasources para poder gestionar las conexiones a bases de datos.
-* Compartir configuraciones comunes entre aplicaciones en lugar de repetir la configuración para cada contenedor.
-
-### Configuración del proyecto MAVEN ###
-
-#### Empaquetar como JAR ####
+#### JAR packaging ####
 
 ```xml
 <packaging>jar</packaging>
@@ -40,9 +32,9 @@ No todas las ventajas vienen del lado de usar contenedores de servlets embebidos
 </parent>
 ```
 
-#### Dependencias ####
+#### Dependencies ####
 
-* Tomcat embebido
+* Embedded Tomcat
 
 ```xml
 <dependency>
@@ -51,7 +43,7 @@ No todas las ventajas vienen del lado de usar contenedores de servlets embebidos
 </dependency>
 ```
 
-Con esta dependencia por defecto podremos usar el Tomcat embebido, por defecto el contenedor de servlets será el Tomcat 8.5.6, en caso de querer usar otro como Jetty o Undertown, se debe excluir de esta dependencia la de Tomcat e incluir la del contenedor elegido.
+With this dependency by default we are going to be able to use the embedded tomcat, and the Tomcat Servlet container version is, by default, 8.5.6, in case of needing to use another one such as Jetty or Undertown, Tomcat should be excluded of the dependency.
 
 * Freemarker
 
@@ -62,16 +54,16 @@ Con esta dependencia por defecto podremos usar el Tomcat embebido, por defecto e
 </dependency>
 ```
 
-Freemarker es el frameework de templating que eligimos para la parte visual. Otras alternativas son Mustache o Thymeleaf. (Velocity fue deprecado a partir de Spring boot 1.4)
-Al agregar esta dependencia, el view resolver de MVC tomara, al devolver vistas en los controlers,  el sufijo ".ftl".
-Los archivos ".ftl" deben quedar en la carpeta templates, creada automaticamente, ahí es donde la aplicación irá a buscar este tipo de archivos.
+Freemarker is a templating framework that we chose for the frontend. Another alternatives are Mustache or Thymeleaf. (Velocity was deprecated since Spring Boot 1.4)
+When we add this dependency, the MVC view resolver will take, in the time of returning views from the controllers. the ".ftl" suffix.
+The ".ftl" files must be on the templates folder, automatically created.
 
-La elección de usar templates por sobre JSP se debe a que al empaquetar como JAR, estos últimos poseen algunas limitaciones. Pueden ver más información de esto en estos links:
+The decision of using templates instead of JSP is because when we package the application as JAR, this last ones have some limitations. You can see mor info on those links:
 
 * http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html
 * https://blog.stackhunter.com/2014/01/17/10-reasons-to-replace-your-jsps-with-freemarker-templates/
 
-#### Plugin maven spring boot ####
+#### Maven Spring Boot Plugin ####
 
 ```xml
 <plugin>
@@ -80,13 +72,12 @@ La elección de usar templates por sobre JSP se debe a que al empaquetar como JA
 </plugin>
 ```
 
-Este plugin nos va a permitir empaquetar la aplicación como un jar ejecutable, y correrla "in-situ". A demás si no le especificamos una clase principal distinta, el plugin va a buscar, para comenzar la ejecución, la clase que tenga el método:
-
+This plugin will allow us to package our application as a executable jar, and run it "in-situ". Also, if we don't specify a principal class, the plugin is going to look after the class that has the following method:
 ```java
 public static void main(String[] args)
 ```
 
-En el caso de nuestro proyecto tendremos lo siguiente:
+In the case of this example we are going to have the following:
 
 ```java
 @SpringBootApplication
@@ -101,15 +92,11 @@ public class MakejarApplication {
 
 #### Application properties ####
 
-En el application.properties del proyecto podemos configurar las propiedades del Tomcat embebido. En este ejemplo vamos a ver sólo dos, que son el puerto y el context path donde se levanta la aplicación.
+On the project application.properties we can configure the Embedded Tomcat properties. On this example we are going to see only two, that are the port and the context path where the application is going to be deployed.
 
 ```java
-server.port={PUERTO}
+server.port={PORT}
 server.context-path={PATH}
 ```
 
-Si no configuramos estas properties el puerto por defecto es el 8080 y el path es "/".
-
-#### Consejo ####
-
-Si ya tenés claro qué significan cada uno de los elementos que configuramos anteriormente, para ahorrar tiempo, podés usar la herramienta [Spring initialzr](https://start.spring.io/) y seleccionar las dependencias que antes especificamos.
+If we don't configure this properties, the default port is 8080 and the path is "/".
